@@ -14,7 +14,7 @@ async function runGeneration() {
     try {
         const payload = JSON.parse(document.getElementById('payloadInput').value);
         // تأكد أن الرابط يطابق الخادم المحلي أو السحابي
-        const response = await fetch('http://localhost:8000/api/generate', {
+        const response = await fetch('https://8000-it3iyatlhi0qodypa9hsr-3428df89.us3.manus.computer/api/generate', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
