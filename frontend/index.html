@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>منظومة الجداول | واجهة الاختبار</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 لوحة اختبار منظومة الجداول V3.1.1</h1>
+        <div class="panel">
+            <h3>ضع كود JSON (Payload) هنا:</h3>
+            <textarea id="payloadInput"></textarea>
+            <button onclick="runGeneration()" id="genBtn">⚡ توليد الجدول الآن</button>
+        </div>
+        <div id="loading" class="hidden">جاري المعالجة بواسطة OR-Tools... الرجاء الانتظار (قد يستغرق 30 ثانية).</div>
+        <div id="resultPanel" class="panel hidden">
+            <h3>النتيجة:</h3>
+            <pre id="jsonResult"></pre>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

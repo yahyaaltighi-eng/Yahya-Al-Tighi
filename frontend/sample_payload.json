@@ -1,0 +1,39 @@
+{
+    "settings": {
+        "workDays": ["الأحد", "الاثنين", "الثلاثاء", "الأربعاء", "الخميس"]
+    },
+    "classes": [
+        {
+            "id": "c1",
+            "name": "الصف الأول",
+            "rooms": 1,
+            "periodsPerDay": 6,
+            "subjects": [
+                { "name": "رياضيات", "hours": 8 },
+                { "name": "علوم", "hours": 4 }
+            ]
+        }
+    ],
+    "teachers": [
+        {
+            "id": "t1",
+            "name": "أحمد",
+            "subject": "رياضيات, علوم",
+            "maxLoad": 10,
+            "maxPerDay": 4,
+            "minPerDay": 1,
+            "freeDays": ["الخميس"],
+            "blockedSlots": {}
+        },
+        {
+            "id": "t2",
+            "name": "محمود",
+            "subject": "رياضيات",
+            "maxLoad": 10,
+            "maxPerDay": 4,
+            "minPerDay": 1,
+            "freeDays": [],
+            "blockedSlots": {}
+        }
+    ]
+}

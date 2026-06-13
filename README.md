@@ -1,20 +1,36 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# 🚀 منظومة الجداول الذكية V3.1.1 (Production Ready)
 
-# Run and deploy your AI Studio app
+هذا المشروع هو خادم سحابي مبني على **FastAPI** و **Google OR-Tools**، مصمم لحل مشكلة جداول الحصص المدرسية باستخدام التحسين الهرمي (Hierarchical Optimization).
 
-This contains everything you need to run your app locally.
+## 🛠 التشغيل المحلي (Local Testing)
+1. قم بتثبيت Python 3.11.
+2. افتح موجه الأوامر (Terminal) في مجلد المشروع ونفذ:
+   ```bash
+   pip install -r requirements.txt
+   python main.py
+   ```
+سيعمل الخادم على http://localhost:8000.
 
-View your app in AI Studio: https://ai.studio/apps/drive/1T0wyMuoWRacrOBur-XC9PDLe7JAn1scd
+افتح ملف index.html في متصفحك مباشرة. اضغط على زر "توليد الجدول الآن".
 
-## Run Locally
+☁️ النشر السحابي (Render Deployment)
+ارفع جميع الملفات (باستثناء HTML/CSS/JS) إلى مستودع GitHub.
 
-**Prerequisites:**  Node.js
+في منصة Render.com، قم بإنشاء Web Service جديد.
 
+اربط المستودع، واستخدم الإعدادات التالية:
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+Environment: Python 3
+
+Build Command: pip install -r requirements.txt
+
+Start Command: uvicorn main:app --host 0.0.0.0 --port $PORT
+
+انسخ الرابط الناتج من Render، وضعه داخل ملف app.js في السطر: fetch('رابط_رندر/api/generate').
+
+🧪 حالات الاختبار المدعومة في sample_payload.json
+SUCCESS (النجاح): شغل الـ Payload كما هو. ستلاحظ توزيع الـ 8 حصص رياضيات بين أحمد ومحمود، دون إسناد أي حصة لأحمد يوم الخميس.
+
+Split Assignment: تفقد top_solutions[0].timetables ستجد الرياضيات يدرسها t1 و t2 لنفس الفصل.
+
+INFEASIBLE & Diagnostics: قم بتغيير maxLoad للمعلم أحمد t1 إلى 2 فقط، واضغط توليد. سيظهر تقرير diagnostics يخبرك بعجز النصاب!
